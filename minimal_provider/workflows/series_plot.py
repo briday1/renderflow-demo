@@ -61,5 +61,5 @@ def run_workflow(metadata=None, **kwargs):
             "y": y_vals,
         },
     )
-    wf.add_plot(fig, save=True)
+    wf.add_plot(fig)
     return wf.build()
