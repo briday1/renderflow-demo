@@ -6,8 +6,7 @@ import time
 
 import plotly.graph_objects as go
 
-from renderflow.progress import emit_progress, wrap_with_timing
-from renderflow.workflow import Workflow
+from renderflow import Workflow, emit_progress, wrap_with_timing
 
 workflow = Workflow(
     name="Series Plot",

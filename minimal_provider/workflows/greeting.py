@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import time
 
-from renderflow.progress import emit_progress, wrap_with_timing
-from renderflow.workflow import Workflow
+from renderflow import Workflow, emit_progress, wrap_with_timing
+
 
 workflow = Workflow(
     name="Greeting",
