@@ -4,8 +4,8 @@ from renderflow.streamlit_renderer import run_renderer
 
 
 def main():
-    # Entrypoint name resolved from pyproject registration.
-    run_renderer("minimal-provider")
+    # Module name works without requiring entrypoint package installation.
+    run_renderer("minimal_provider")
 
 
 if __name__ == "__main__":
