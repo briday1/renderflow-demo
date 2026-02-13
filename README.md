@@ -3,6 +3,7 @@
 This is a tiny provider package that demonstrates the `renderflow` API with:
 - two workflows under `minimal_provider.workflows`
 - workflow params automatically discovered from `workflow.params`
+- live step progress using `renderflow.progress.emit_progress` and `wrap_with_timing`
 
 ## Install
 
@@ -102,3 +103,7 @@ Provider package contract used here:
   - `run_workflow(...) -> workflow.build()`
 
 No custom CLI or custom renderer is needed in the provider.
+
+Progress helpers:
+- `emit_progress(metadata, step, status, detail)` emits step events to the Streamlit status panel.
+- `wrap_with_timing(fn, ...)` wraps a function, emits progress events, and appends timing metadata.

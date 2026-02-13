@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import time
+
+from renderflow.progress import emit_progress, wrap_with_timing
 from renderflow.workflow import Workflow
 
 workflow = Workflow(
@@ -36,12 +39,29 @@ def run_workflow(metadata=None, **kwargs):
     wf = workflow.clear()
     metadata = metadata or {}
 
+    emit_progress(metadata, "Parse Inputs", "running", "Resolve workflow parameters")
     name = str(metadata.get("name", "World"))
     excited = bool(metadata.get("excited", False))
     repeat = int(metadata.get("repeat", 2))
+    emit_progress(metadata, "Parse Inputs", "done", "Resolve workflow parameters")
 
-    suffix = "!" if excited else "."
-    lines = [f"Hello, {name}{suffix}" for _ in range(max(1, repeat))]
+    def _build_lines(inputs):
+        time.sleep(0.12)
+        n = inputs["name"]
+        ex = inputs["excited"]
+        rep = max(1, int(inputs["repeat"]))
+        suffix = "!" if ex else "."
+        return {"lines": [f"Hello, {n}{suffix}" for _ in range(rep)]}
+
+    line_result = wrap_with_timing(
+        _build_lines,
+        label="Build Greeting Lines",
+        description="Generate repeated greeting text",
+        metadata=metadata,
+    )({"name": name, "excited": excited, "repeat": repeat})
+    lines = line_result["lines"]
+
+    emit_progress(metadata, "Assemble Results", "running", "Add text and table outputs")
     wf.add_text(lines)
     wf.add_table(
         "Input Summary",
@@ -50,4 +70,5 @@ def run_workflow(metadata=None, **kwargs):
             "value": [name, excited, repeat],
         },
     )
+    emit_progress(metadata, "Assemble Results", "done", "Add text and table outputs")
     return wf.build()
