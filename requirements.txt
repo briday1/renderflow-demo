@@ -1,4 +1,4 @@
-renderflow @ git+https://github.com/briday1/renderflow.git@main
+renderflow>=0.1.0
 streamlit>=1.31.0
 plotly>=5.18.0
 kaleido>=0.2.1

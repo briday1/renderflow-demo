@@ -88,7 +88,7 @@ Deployment steps:
 
 Notes:
 - This example does not use `app_definition.py`.
-- `pyproject.toml` pins `renderflow` from GitHub `main`.
+- `pyproject.toml` installs `renderflow` from PyPI.
 - Image export formats (`png/jpg/svg/pdf`) require `kaleido` (already listed).
 
 ## API Summary
