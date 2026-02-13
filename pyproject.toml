@@ -9,7 +9,7 @@ description = "Minimal renderflow provider example"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "renderflow @ git+https://github.com/briday1/renderflow.git@main",
+    "renderflow @ git+https://github.com/briday1/renderflow.git@a7bf004b3478cb31b5264df2630262d385099883",
     "streamlit>=1.31.0",
     "plotly>=5.18.0",
     "kaleido>=0.2.1",
