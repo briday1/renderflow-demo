@@ -9,7 +9,7 @@ description = "Minimal renderflow provider example"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "renderflow>=2026.2",
+    "renderflow>=2026.4",
     "streamlit>=1.31.0",
     "plotly>=5.18.0",
     "kaleido>=0.2.1",
