@@ -9,7 +9,7 @@ description = "Minimal renderflow provider example"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "renderflow>=2026.4",
+    "renderflow>=2026.7",
     "streamlit>=1.31.0",
     "plotly>=5.18.0",
     "kaleido>=0.2.1",
@@ -19,7 +19,7 @@ dependencies = [
 minimal-provider = "renderflow.cli:main"
 
 [project.entry-points."renderflow.providers"]
-minimal-provider = "minimal_provider.renderflow:get_app_spec"
+minimal-provider = "renderflow.autodefine:auto_build_app_spec"
 
 [tool.setuptools.packages.find]
 include = ["minimal_provider*"]
