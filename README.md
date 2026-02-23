@@ -94,7 +94,7 @@ Notes:
 ## API Summary
 
 Provider package contract used here:
-- `minimal_provider/__init__.py`
+- `minimal_provider/renderflow.py`
   - `APP_NAME`
   - `WORKFLOWS_PACKAGE`
 - `minimal_provider/workflows/*.py`
